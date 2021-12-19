@@ -23,10 +23,14 @@ const settings = {
               "Events",
               "/main-events/"
             ],
-
             [
-              "Facts",
-              "/main-facts"
+        
+              "Fact:Culture;Life Style;Science;Initiative",
+              "/category/culture/;/category/lifestyle/;/category/science/;/category/initiative/"
+            ],
+            [
+              "Fact:Initiative",
+              "/category/initiative/"
             ]
           ],
           "featured": {

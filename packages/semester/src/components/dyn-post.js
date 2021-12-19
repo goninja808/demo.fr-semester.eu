@@ -153,15 +153,14 @@ const PerCatTagPeriodPost = ({ state, actions, libraries, period, resultF }) => 
         <Container when={state.router.link == '/main-facts/'}>
          
           {onlyFact.map(({ posts, category, isNotHeader, resultF }, index) => (
-            <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} >
-              <HeadingGroupCategory className={`${category.slug} `}> {category.name}</HeadingGroupCategory>
+            <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} > 
               <div className="GroupCategory-box col-md-12">
                 {posts.map((post, index) => (
                   <article key={index}>
                     <div>
                       <div px={2}>
                         {<Link link={post.link}>
-
+                     
                           <Html2React html={post.title.rendered} />
                           <p>{resultF[0][index]}{resultF[1][index]}{resultF[2][index]}{resultF[3][index]}{resultF[4][index]}</p>
 

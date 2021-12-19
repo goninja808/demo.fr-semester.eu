@@ -48,7 +48,8 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
          { 
          resultEvent.map(({ posts, category, isNotHeader }, index) => (
             <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} >
-              <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>
+               {/*(category != "Events") && <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>*/}
+             
                 <div className="GroupCategory-box col-md-12">
                  {posts.map((post, index) => (
                   <article key={index}>
@@ -74,7 +75,8 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
           <span/>
           {resultFact.map(({ posts, category, isNotHeader }, index) => (
             <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} >
-              <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>
+             {/*(category != "Events") && <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>*/}
+             
                 <div className="GroupCategory-box col-md-12">
                  {posts.map((post, index) => (
                   <article key={index}>
@@ -103,7 +105,8 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
            <Container when={state.router.link=='/'}>
             { resultFact.map(({ posts, category, isNotHeader }, index) => (
             <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} >
-              <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>
+               {/*(category != "Events") && <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>*/}
+             
                 <div className="GroupCategory-box col-md-12">
                  {posts.map((post, index) => (
                   <article key={index}>

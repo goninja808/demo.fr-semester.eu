@@ -21,7 +21,7 @@ export const getFactsForRegion = (source, tagId,) => {
       const category = source.category[categoryId]
       const isNotHeader = !(source.category[categoryId].slug === 'header')
       const resultF = getResultF(posts);
-      console.log(resultF);
+      
       return [...acc, { posts, category, isNotHeader , resultF}]
     }, [])
 }
@@ -39,7 +39,7 @@ export const getPostsGroupedByCategoryAndTag = (source, tagId) => {
       const category = source.category[categoryId]
       const isNotHeader = !(source.category[categoryId].slug === 'header')
       const resultF = getResultF(posts);
-      console.log(resultF);
+ 
       return [...acc, { posts, category, isNotHeader , resultF}]
     }, [])
 
@@ -60,7 +60,7 @@ export const getEventsForRegion = (source, tagId,) => {
       const category = source.category[categoryId]
       const isNotHeader = !(source.category[categoryId].slug === 'header')
       const resultF = getResultF(posts);
-      console.log(resultF);
+
       return [...acc, { posts, category, isNotHeader , resultF}]
     }, [])
 }
@@ -81,7 +81,7 @@ export const getFacts = (source) => {
       const category = source.category[categoryId]
       const isNotHeader = !(source.category[categoryId].slug === 'header')
       const resultF = getResultF(posts);
-      console.log(resultF);
+
       return [...acc, { posts, category, isNotHeader , resultF}]
     }, [])
 }
@@ -102,7 +102,7 @@ export const getEventsForRegionPeriod = (source, tagId, Period,) => {
       const category = source.category[categoryId]
       const isNotHeader = !(source.category[categoryId].slug === 'header')
       const resultF = getResultF(posts);
-      console.log(resultF);
+
       const dateprefix = posts.map(item =>
       (String(item.acf.dateexec.substring(2, 4)
         + "/" + item.acf.dateexec.substring(4, 6)
@@ -142,10 +142,16 @@ function asIntersect(a1,a2){
   var regionArrayF = posts.map(v2 => (( asIntersect(awRegionT, v2.tags) )?1:0) );
   var eventCArrayF = posts.map(v3 => (v3.categories.includes(eventsC))?1:0);
   var eventTarrayF = posts.map(v4 => (asIntersect(v4.categories, awEventsT ))?1:0 );
-  var spCF = posts.map(v5=> (asIntersect(awCulture,v5.categories))? 1 : ((asIntersect(awLifestyle,v5.categories))? 2 : ((asIntersect(awScience,v5.categories))? 3: ( (asIntersect(awInitiative,v5.categories))? 4 : 0))) );
-  
+  var spCV = posts.map(v5=> (asIntersect(awCulture,v5.categories))? 1 : ((asIntersect(awLifestyle,v5.categories))? 2 : ((asIntersect(awScience,v5.categories))? 3: ( (asIntersect(awInitiative,v5.categories))? 4 : 0))) );
+  var strapCV = posts.map(v6=> (  
+    "b"
+    .concat((v6.categories.includes(headerC))?"1":"0")
+    .concat((asIntersect(v6.categories, awEventsT ))?"1":"0")
+    .concat((asIntersect(awCulture,v6.categories))? 1 : ((asIntersect(awLifestyle,v6.categories))? 2 : ((asIntersect(awScience,v6.categories))? 3: ( (asIntersect(awInitiative,v6.categories))? 4 : 0))))
+    ));
 
-  const resultF = [headerArrayF,regionArrayF,eventCArrayF ,eventTarrayF, spCF];
+
+  const resultF = [headerArrayF,regionArrayF,eventCArrayF ,eventTarrayF, spCV, strapCV];
   return resultF;
   }
 
@@ -158,7 +164,7 @@ export const getEventInPeriod = (source, period) => {
       const isNotHeader =!(source.category[categoryId].slug === 'header')
       // test all aspect in one return
       const resultF = getResultF(posts);
-      console.log(resultF);
+
       const dateprefix = posts.map(item =>
       (String(item.acf.dateexec.substring(2, 4)
         + "/" + item.acf.dateexec.substring(4, 6)

@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { connect, styled } from "frontity";
-import Link from "./link"; 
+import Link from "./link";
 import HeaderMedia from "./header-media";
-import { getPostsGroupedByCategoryAndTag ,getEventsForRegionPeriod } from "./helper"; 
-import { Calendar, DateObject} from "react-multi-date-picker"
+import { getPostsGroupedByCategoryAndTag, getEventsForRegionPeriod } from "./helper";
+import band01 from './header/images/central.bandeau.png';
+import { Calendar, DateObject } from "react-multi-date-picker"
 import DatePanel from "react-multi-date-picker/plugins/date_panel"
 import colors from "react-multi-date-picker/plugins/colors";
 import post from "./post";
+import Straps from "./strap/images/straps.png"
 
 /**
  * The Post component that Mars uses to render any kind of "post type", like
@@ -27,11 +29,11 @@ import post from "./post";
  *
  * @returns The {@link Post} element rendered.
  */
-const PerCatPost = ({ state, actions, libraries ,tagId, period}) => {
+const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-  const postsPerCategory = getPostsGroupedByCategoryAndTag(state.source, tagId );
- // Get the html2react component.
+  const postsPerCategory = getPostsGroupedByCategoryAndTag(state.source, tagId);
+  // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
   /**
@@ -39,78 +41,147 @@ const PerCatPost = ({ state, actions, libraries ,tagId, period}) => {
    * home posts and the list component so if the user visits
    * the home page, everything is ready and it loads instantly.
    */
-// Get dynamic inicial list (event / fact main pages)
-const resultEventInPeriod = getEventsForRegionPeriod(state.source, tagId, period);
-var resultDateObjectInPeriod = [];
-var countEventCategory = resultEventInPeriod.length;
-const categColor=["grey","grey","yellow","pink","blue","green"]
-for (let i = 0; i < countEventCategory; i++) {
-  var element = resultEventInPeriod[i]
-  var inPeriodEvents = element.dateprefix; 
-  if (inPeriodEvents.length>0){
-    inPeriodEvents.forEach(eventDate=>
-      {
+  // Get dynamic inicial list (event / fact main pages)
+  const resultEventInPeriod = getEventsForRegionPeriod(state.source, tagId, period);
+  var resultDateObjectInPeriod = [];
+  var countEventCategory = resultEventInPeriod.length;
+  const categColor = ["grey", "grey", "yellow", "pink", "blue", "green"]
+
+  for (let i = 0; i < countEventCategory; i++) {
+    var element = resultEventInPeriod[i]
+    var inPeriodEvents = element.dateprefix;
+    if (inPeriodEvents.length > 0) {
+      inPeriodEvents.forEach(eventDate => {
         var aday = new DateObject(eventDate);
         aday.color = categColor[i];
         resultDateObjectInPeriod.push(aday);
       }
       )
-  }
-};
-const eventDatesref = resultDateObjectInPeriod;
+    }
+  };
+  const eventDatesref = resultDateObjectInPeriod;
 
   // Load the post, but only if the data is ready.
-  
+
   return data.isReady ? (
     <FlexContainer>
-       <Container> 
-         {postsPerCategory.map(({ posts, category, isNotHeader , resultF}, index) => (
-            <CategoryGP key={index} className="GroupCategory col-12 align-self-strech">
-              {isNotHeader ? (<HeadingGroupCategory  className={`${category.slug}`}>{category.name}</HeadingGroupCategory>):(<span/>)}
-              {category.name=='Events' ?             
+      <Container>
+        {postsPerCategory.map(({ posts, category, isNotHeader, resultF }, index) => (
+          <CategoryGP key={index} className="GroupCategory col-12 align-self-strech">
+            {/*isNotHeader ? (<HeadingGroupCategory  className={`${category.slug}`}>{category.name}</HeadingGroupCategory>):(<span/>)*/}
+            {category.name == 'Events' ?
               <Calendar relativePosition='top-center'
-                 numberOfMonths={1} 
-                 disableMonthPicker="true"
-                 disableYearPicker="true"
-                 displayWeekNumbers="true"
-                 value={eventDatesref}           
-                 plugins={[
-                  <DatePanel sort="color" markFocused/>,
-                 ]} />
-            : null}
-              { (isNotHeader && posts.length>0)? <PostCount>{posts.length} posts </PostCount> : <span/>}
-                
-                <div className="GroupCategory-box col-md-12">
-                {posts.map((post, index) => (
-                  <article key={index}>
-                    <div>
-                        <div px={2}>
-                         {  <Link link={post.link}>                            
-                           <Html2React html={post.title.rendered} /> 
-                            </Link> }
-                            <p>{resultF[0][index]}{resultF[1][index]}{resultF[2][index]}{resultF[3][index]}{resultF[4][index]}</p>
-                          { !(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : <span/>}
-                          <Html2React html={post.excerpt.rendered} />
-                        </div>
-                      
+                numberOfMonths={1}
+                disableMonthPicker="true"
+                disableYearPicker="true"
+                displayWeekNumbers="true"
+                value={eventDatesref}
+                plugins={[
+                  <DatePanel sort="color" markFocused />,
+                ]} />
+              : null}
+            {(isNotHeader && posts.length > 0) ? <PostCount>{posts.length} posts </PostCount> in {category} : <span />}
+            <div className="GroupCategory-box col-md-12">
+              {posts.map((post, index) => (
+                <article key={index}>
+
+                  <div>
+                    <div px={2}>
+
+                      {<Link link={post.link}>
+                        <BandContainer className={`${resultF[5][index]} `}>
+                          <div className={`Image `}>
+                            <div className="OverlayT1"> {(((resultF[1][index])==1)) ? (isNotHeader?<span >The name of the region limited to 35c</span>:<span >Region of the Month</span>) : null }</div>
+                            <div className="OverlayT2">  {(isNotHeader) ? ["","Culture: ","Life Style: ","Science: ","Initiative: "][(resultF[4][index])] : <Html2React html={post.title.rendered} />}</div>
+                          </div>
+                        </BandContainer>
+
+                      </Link>}
+
+                      {!(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : <span />}
+                      <Html2React html={post.excerpt.rendered} />
                     </div>
-                  </article>
-                  ))}
+
                   </div>
-                  <p/>
-                  {posts.length==0?<p><span/>No Region Related {category.name} this month.</p>:null}
-                  {isNotHeader?<Link link={category.link}>
-                  <p>&gt;&gt; See more <strong>{category.name}</strong> related posts </p>
-                </Link>:<span/>}
-            </CategoryGP>
-          ))
+                </article>
+              ))}
+            </div>
+            <p />
+            {posts.length == 0 ? <p><span />No Region Related {category.name} this month.</p> : null}
+            {isNotHeader ? <Link link={category.link}>
+              <p>&gt;&gt; See more <strong>{category.name}</strong> related posts </p>
+            </Link> : <span />}
+          </CategoryGP>
+        ))
         }
-    </Container>
+      </Container>
     </FlexContainer>
   ) : null;
 };
 
 export default connect(PerCatPost);
+
+const BandContainer = styled.div`
+  position: relative;
+  max-width: 1000px; 
+  height:58px;
+  background: 
+  url('/static/images/straps.png') no-repeat;
+  padding: 5px;
+ 
+  &.b100{
+    background-position-y:0px;
+  }
+  &.b000{
+    background-position-y:-58px;
+  }
+  &.b001{
+    background-position-y:-406px;
+  }
+  &.b011{
+    background-position-y:-116px;
+  }
+  &.b002{
+    background-position-y:-464px;
+  }
+  &.b012{
+    background-position-y:-174px;
+  }
+  &.b003{
+    background-position-y:-522px;
+  }
+  &.b013{
+    background-position-y:-232px;
+  }  
+  &.b004
+  {
+    background-position-y:-580px;
+  }
+  &.b014{
+    background-position-y:-290px;
+  }
+  .image {
+    object-fit: cover;
+    }
+  .OverlayT1 {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding-top:-2px;
+    margin-top:-2px;
+    font-size:small;
+    margin-left: 69px;
+  }
+  .OverlayT2 {
+    position: relative;
+    display: block;
+    text-align: left;
+    padding-bottom: 4px;
+    padding-left: 30px;
+    font-size:medium;
+  }
+`;
+
 const FlexContainer = styled.div`
   display: flex;
 `
@@ -165,7 +236,7 @@ const HeadGroupCategory = styled.article`
     }
   }
 `;
- 
+
 
 const PostCount = styled.span`
   font-size: 10px;
