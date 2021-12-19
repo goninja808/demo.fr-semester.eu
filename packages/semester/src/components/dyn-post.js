@@ -10,7 +10,7 @@ import { Calendar, DateObject } from "react-multi-date-picker"
 import DatePanel from "react-multi-date-picker/plugins/date_panel"
 import colors from "react-multi-date-picker/plugins/colors";
 import post from "./post";
-
+import WrapPostTitle from "./wrapPostTitle";
 /**
  * The Post component that Mars uses to render any kind of "post type", like
  * posts, pages, attachments, etc.
@@ -88,12 +88,7 @@ const PerCatTagPeriodPost = ({ state, actions, libraries, period, resultF }) => 
                   <article key={index}>
                     <div>
                       <div px={2}>
-                        {<Link link={post.link}>
-                          <p>{resultF[0][index]}{resultF[1][index]}{resultF[2][index]}{resultF[3][index]}{resultF[4][index]}</p>
-
-                          <Html2React html={post.title.rendered} />
-
-                        </Link>}
+                      <WrapPostTitle state={state} post={post}  libraries={libraries} index={index} resultF={resultF} />
                         {!(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : null}
                         <Html2React html={post.excerpt.rendered} />
                       </div>
@@ -130,13 +125,8 @@ const PerCatTagPeriodPost = ({ state, actions, libraries, period, resultF }) => 
                   <article key={index}>
                     <div>
                       <div px={2}>
-                        {<Link link={post.link}>
-
-                          <Html2React html={post.title.rendered} />
-                          <p>{resultF[0][index]}{resultF[1][index]}{resultF[2][index]}{resultF[3][index]}{resultF[4][index]}</p>
-
-                        </Link>}
-                        <p>{post.acf.dateexec.substring(6, 8) + "/" + post.acf.dateexec.substring(4, 6) + "/2022"}</p>
+                      <WrapPostTitle state={state} post={post}  libraries={libraries} index={index} resultF={resultF} />
+                        <DateWrapper>{post.acf.dateexec.substring(6, 8) + "/" + post.acf.dateexec.substring(4, 6) + "/2022"}</DateWrapper>
                         {!(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : null}
                         <Html2React html={post.excerpt.rendered} />
                       </div>
@@ -159,12 +149,7 @@ const PerCatTagPeriodPost = ({ state, actions, libraries, period, resultF }) => 
                   <article key={index}>
                     <div>
                       <div px={2}>
-                        {<Link link={post.link}>
-                     
-                          <Html2React html={post.title.rendered} />
-                          <p>{resultF[0][index]}{resultF[1][index]}{resultF[2][index]}{resultF[3][index]}{resultF[4][index]}</p>
-
-                        </Link>}
+                      <WrapPostTitle state={state} post={post}  libraries={libraries} index={index} resultF={resultF} />
                         {!(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : null}
                         <Html2React html={post.excerpt.rendered} />
                       </div>
@@ -201,6 +186,15 @@ const BigImage = styled.img`
   margin-right: 25px;
 `;
 
+const DateWrapper = styled.p`
+  max-width: 63px;
+  border-radius: 14px;
+  font-size:11px;
+  line-height:12px;
+  text-align:center;
+  margin-left: 5px;
+  background-color: #cfb8b8;
+`;
 
 const Container = styled.section`
   display: grid;

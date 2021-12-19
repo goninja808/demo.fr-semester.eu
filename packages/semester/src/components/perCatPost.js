@@ -91,7 +91,7 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
 
                   <div>
                     <div px={2}>
-                    <WrapPostTitle post={post}  libraries={libraries} index={index} resultF={resultF} />
+                    <WrapPostTitle state={state} post={post}  libraries={libraries} index={index} resultF={resultF} />
                       {!(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : <span />}
                       <Html2React html={post.excerpt.rendered} />
                     </div>

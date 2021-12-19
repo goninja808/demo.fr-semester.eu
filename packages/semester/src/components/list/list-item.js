@@ -2,12 +2,7 @@ import { connect, styled } from "frontity";
 import Link from "../link";
 import FeaturedMedia from "../featured-media";
 import Image from "@frontity/components/image";
-import food from "./images/food.png";
-import events from "./images/events.png";
-import initiatives from "./images/initiative.png";
-import lifestyle from "./images/lifestyle.png";
-import Culture from "./images/culture.png";
-import science from "./images/science.png";
+import WrapPostTitle from "../wrapPostTitle";
 /**
  * Item Component
  *
@@ -23,10 +18,10 @@ const Item = ({ state, item }) => {
   let readMoreLabel = 'more in ' ;
 
   return (
+    
     <Article className="newsarticle col-12 align-self-strech">
       <div className="articlebox col-md-12">
       <Link className="articletitle" link={item.link}>
-            <Illust src={food} title={item.link}/>
             <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} /></Link> 
       
       {state.theme.featured.showOnList && (

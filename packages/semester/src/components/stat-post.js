@@ -6,6 +6,7 @@ import { getFactsForRegion, getEventsForRegion } from "./helper";
 import {eventCategory} from "./config"
 import Switch from "@frontity/components/switch"; 
 import React,{useState} from "react"
+import WrapPostTitle from "./wrapPostTitle";
 
 /**
  * The Post component that Mars uses to render any kind of "post type", like
@@ -46,7 +47,7 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
          <Switch>
          <Container when={state.router.link=='/regionofthemonth/'}>
          { 
-         resultEvent.map(({ posts, category, isNotHeader }, index) => (
+         resultEvent.map(({ posts, category, isNotHeader, resultF }, index) => (
             <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} >
                {/*(category != "Events") && <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>*/}
              
@@ -55,11 +56,7 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
                   <article key={index}>
                     <div>
                         <div px={2}>
-                         {  <Link link={post.link}>
-                            <h2>
-                           <Html2React html={post.title.rendered} /> 
-                            </h2>
-                          </Link> }
+                        <WrapPostTitle state={state} post={post} libraries={libraries} index={index} resultF={resultF} />
                           { !(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : null}
                           <Html2React html={post.excerpt.rendered} />
                         </div>                  
@@ -73,7 +70,7 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
             </CategoryGP>
           ))}
           <span/>
-          {resultFact.map(({ posts, category, isNotHeader }, index) => (
+          {resultFact.map(({ posts, category, isNotHeader, resultF }, index) => (
             <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} >
              {/*(category != "Events") && <HeadingGroupCategory  className={`${category.slug} `}>  <Illust src={`/static/images/${category.slug}_picto.png`} title={category.link}/> {category.name}</HeadingGroupCategory>*/}
              
@@ -82,11 +79,7 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
                   <article key={index}>
                     <div>
                         <div px={2}>
-                         {  <Link link={post.link}>
-                            <h2>
-                           <Html2React html={post.title.rendered} /> 
-                            </h2>
-                          </Link> }
+                        <WrapPostTitle state={state} post={post}  libraries={libraries} index={index} resultF={resultF} />
                           { !(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : null}
                           <Html2React html={post.excerpt.rendered} />
                         </div>                  

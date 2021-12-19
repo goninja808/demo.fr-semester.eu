@@ -45,29 +45,43 @@ export const BandContainer = styled.div`
     object-fit: cover;
     }
   .OverlayT1 {
-    line-height: 1rem;
+    line-height: 0.8rem;
     position: relative;
     display: block;
     text-align: center;
-    padding-top:-2px;
+    padding-top:-3px;
     margin-top:-2px;
     font-size:small;
     margin-left: 69px;
+    font-size:small;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
   .OverlayT2 {
-    line-height: 1rem;
+    line-height: 1.2rem;
     position: relative;
     display: block;
     text-align: left;
     padding-bottom: 4px;
     padding-left: 30px;
     font-size:medium;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
   .TitleT3 {
-    line-height: 1.5rem;
+    line-height: 1.0rem;
     text-indent: 31px;
     color: #ffffff;
     text-shadow: 1px 1px 5px black;
     font-size:medium;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-decoration:underline;
   }
 `;
