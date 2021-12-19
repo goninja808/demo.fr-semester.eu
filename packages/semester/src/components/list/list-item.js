@@ -20,17 +20,16 @@ const Item = ({ state, libraries, resultF, item , index}) => {
   return (
     
     <Article className="newsarticle col-12 align-self-strech">
-      <div className="articlebox col-md-12">
-      <Link className="articletitle" link={item.link}>
-            <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} /></Link>  
-       {/* <WrapPostTitle state={state} post={item}  libraries={libraries} index={index} resultF={resultF} /> */}
+      {console.log(resultF) /* <div className="articlebox col-md-12"> */}
+       
+        <WrapPostTitle state={state} post={item}  libraries={libraries} index={index} resultF={resultF} /> 
       {state.theme.featured.showOnList && (
         <FeaturedMedia id={item.featured_media} />
       )}
       {item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
-      </div>
+      {/* </div> */}
     </Article>
   );
 };

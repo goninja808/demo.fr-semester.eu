@@ -137,7 +137,11 @@ function asIntersect(a1,a2){
   return  (Intersect(a1,a2).length > 0); 
 }
 
-  export const getResultF = (posts) => {
+  export const getResultF = ( posts, state=null) => { 
+
+//TODO on condition not a complete post 
+  var posts = (state? posts.map(({ type, id }, index) => state.source[type][id]):posts);
+
   var headerArrayF = posts.map(v1 => (v1.categories.includes(headerC))?1:0);
   var regionArrayF = posts.map(v2 => (( asIntersect(awRegionT, v2.tags) )?1:0) );
   var eventCArrayF = posts.map(v3 => (v3.categories.includes(eventsC))?1:0);

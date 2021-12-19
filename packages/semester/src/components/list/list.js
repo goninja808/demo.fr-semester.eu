@@ -8,7 +8,7 @@ const is2Column=true;
 const List = ({ state, actions, libraries }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
-  const resultF = [[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1]] ;//getResultF(data.items);
+  const resultF = getResultF(data.items, state);
   let title = 'Recent Facts / Events';
   return (
     <FlexContainer> 
@@ -18,7 +18,7 @@ const List = ({ state, actions, libraries }) => {
                     {/* If the list is a blog posts, we render a title. */}
       {data.isPostArchive && (
         <Header>
-          {title}
+          {title} dass
         </Header>
       )}
        
@@ -26,7 +26,7 @@ const List = ({ state, actions, libraries }) => {
       {data.isTaxonomy && (
         <Header>
           {" "}
-          <b>{decode(state.source[data.taxonomy][data.id].name)}</b>
+          <b>{decode(state.source[data.taxonomy][data.id].name)}</b> 
         </Header>
       )}
 

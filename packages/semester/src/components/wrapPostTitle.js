@@ -28,7 +28,9 @@ const WrapPostTitle = ({state, post,libraries, index, resultF }) => {
             <BandContainer className={`${resultF[5][index]} `}>
                 <div className={`Image`}>
                     <div className="OverlayT1"> {(((resultF[1][index]) == 1)) ? (((resultF[0][index]) == 1) ? <span >Regions of the Month</span> : <span >Centre Val de Loire – Bourgogne Franche Comté</span>) : <span> - </span>}</div>
-                    <div className="OverlayT2">  {((resultF[0][index]) == 0) ? ["", "Culture: ", "Life Style: ", "Science: ", "Initiative: "][(resultF[4][index])] : <Html2React html={post.title.rendered} />}</div>
+                    <div className="OverlayT2">  
+                    {((resultF[0][index]) == 0) ? ["", "Culture: ", "Life Style: ", "Science: ", "Initiative: "][(resultF[4][index])] : <Html2React html={post.title.rendered} />}
+                    </div>
                 </div>
                 <div className="TitleT3">  {(((resultF[1][index]) == 1)) ? ((resultF[0][index]) == 0) ? <Html2React html={post.title.rendered} /> : <span ></span> : <Html2React html={post.title.rendered} /> }</div>
             </BandContainer>
