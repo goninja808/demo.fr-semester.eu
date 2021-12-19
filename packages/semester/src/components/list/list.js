@@ -2,11 +2,13 @@ import React,{useEffect} from "react";
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
+import {getResultF} from "../helper/index";
 
 const is2Column=true;
 const List = ({ state, actions, libraries }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
+  const resultF = [[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1]] ;//getResultF(data.items);
   let title = 'Recent Facts / Events';
   return (
     <FlexContainer> 
@@ -34,10 +36,10 @@ const List = ({ state, actions, libraries }) => {
           
 
       {/* Iterate over the items of the list. */}
-      {data.items.map(({ type, id }) => {
+      {data.items.map(({ type, id }, index) => {
         const item = state.source[type][id];
         // Render one Item component for each one.
-        return <Item key={item.id} item={item} />;
+        return <Item state={state} library={libraries} resultF={resultF} item={item} id={index}/>;
       })}
       <Pagination />
     </Container> 

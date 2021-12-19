@@ -11,19 +11,19 @@ import WrapPostTitle from "../wrapPostTitle";
  * - Author: name of author and published date
  * - FeaturedMedia: the featured image/video of the post
  */
-const Item = ({ state, item }) => {
+const Item = ({ state, libraries, resultF, item , index}) => {
   const data = state.source.get(state.router.link);
   const author = state.source.author[item.author];
-  const date = new Date(item.date);
-  let readMoreLabel = 'more in ' ;
+  const date = new Date(item.date); 
 
+  
   return (
     
     <Article className="newsarticle col-12 align-self-strech">
       <div className="articlebox col-md-12">
       <Link className="articletitle" link={item.link}>
-            <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} /></Link> 
-      
+            <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} /></Link>  
+       {/* <WrapPostTitle state={state} post={item}  libraries={libraries} index={index} resultF={resultF} /> */}
       {state.theme.featured.showOnList && (
         <FeaturedMedia id={item.featured_media} />
       )}
