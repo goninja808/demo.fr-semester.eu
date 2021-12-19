@@ -143,7 +143,7 @@ const HeadContainer = styled.div`
   padding-right: 15px;
   padding-left: 10px;
   padding-bottom:1.25rem;
-  background-image: url('https://fr-semester.blog/wp-content/uploads/2021/12/central.bandeau-satelitte2000.png');
+  background-image: url('https://fr-semester.blog/wp-content/uploads/2021/12/central.bandeau-satelitte.png');
   background-blend-mode: multiply;
   border: white;
   background-size: cover;

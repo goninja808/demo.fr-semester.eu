@@ -58,11 +58,11 @@ const Logo = styled.div`
   background-size: 133px;
   width: 130px;
   height: 135px; 
-  background-image: url('https://fr-semester.eu/wp-content/uploads/2021/12/LogoM.png');
+  background-image: url('https://fr-semester.blog/wp-content/uploads/2021/12/LogoM.png');
   @media (min-width: 768px) {
   width: 160px;
   height: 170px;
   background-size: 170px; 
-  background-image: url('https://fr-semester.eu/wp-content/uploads/2021/12/LogoM.png');
+  background-image: url('https://fr-semester.blog/wp-content/uploads/2021/12/LogoM.png');
   }
 `;
