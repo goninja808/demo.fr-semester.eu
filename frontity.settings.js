@@ -15,22 +15,21 @@ const settings = {
           "month_tag":process.env.INDEX_SEMESTER,
           "menu": [  
             [
-              "Region of the month",
+              "Welcome",
+              "/"
+            ],
+            [
+              "REGIONS of the month",
               "/regionofthemonth"
             ],
-
             [
-              "Events",
+              "EVENTS",
               "/main-events/"
             ],
             [
         
-              "Fact:Culture;Life Style;Science;Initiative",
-              "/category/culture/;/category/lifestyle/;/category/science/;/category/initiative/"
-            ],
-            [
-              "Fact:Initiative",
-              "/category/initiative/"
+              "FACTS",
+              "/main-facts/"
             ]
           ],
           "featured": {

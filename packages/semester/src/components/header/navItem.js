@@ -15,7 +15,7 @@ const NavItem = ({ state, key, name, link, isCurrent }) => {
   return (
     <NavItemSt>
       <Link link={link} aria-current={isCurrent ? "page" : undefined}>
-      &#124; {mainName} 
+      &#124;<span/>{mainName}<span/>
       </Link>
     </NavItemSt>
   )

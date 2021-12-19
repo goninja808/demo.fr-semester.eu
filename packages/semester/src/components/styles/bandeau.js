@@ -45,7 +45,7 @@ export const BandContainer = styled.div`
     object-fit: cover;
     }
   .OverlayT1 {
-    line-height: 0.8rem;
+    line-height: 0.95rem;
     position: relative;
     display: block;
     text-align: center;
@@ -60,7 +60,7 @@ export const BandContainer = styled.div`
     -webkit-box-orient: vertical;
   }
   .OverlayT2 {
-    line-height: 1.2rem;
+    line-height: 1.1rem;
     position: relative;
     display: block;
     text-align: left;
@@ -73,7 +73,7 @@ export const BandContainer = styled.div`
     -webkit-box-orient: vertical;
   }
   .TitleT3 {
-    line-height: 1.0rem;
+    line-height: 0.9rem;
     text-indent: 31px;
     color: #ffffff;
     text-shadow: 1px 1px 5px black;
@@ -82,6 +82,6 @@ export const BandContainer = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    text-decoration:underline;
+    
   }
 `;

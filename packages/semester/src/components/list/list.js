@@ -39,7 +39,7 @@ const List = ({ state, actions, libraries }) => {
       {data.items.map(({ type, id }, index) => {
         const item = state.source[type][id];
         // Render one Item component for each one.
-        return <Item state={state} library={libraries} resultF={resultF} item={item} id={index}/>;
+        return <Item state={state} library={libraries} resultF={resultF} item={item} index={index}/>;
       })}
       <Pagination />
     </Container> 

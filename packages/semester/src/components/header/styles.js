@@ -95,7 +95,7 @@ export const NavContainer = styled.nav`
 
 export const NavItemSt = styled.div`
   padding: 0;
-  margin: 0 16px;
+  margin: 0 10px;
   color: var(--brand);
   font-size: 0.9em;
   box-sizing: border-box;
@@ -104,7 +104,7 @@ export const NavItemSt = styled.div`
   & > a {
     display: inline-block;
     line-height: 2em;
-    color:var(--black);
+    color:var(--white);
     transition: all 0.3s ease;
     /* Use for semantic approach to style the current link */
     &[aria-current="page"] {
