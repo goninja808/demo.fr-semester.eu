@@ -1,14 +1,13 @@
-import { useEffect } from "react";
 import { connect, styled } from "frontity";
-import Link from "./link";
+import { useEffect } from "react";
 import HeaderMedia from "./header-media";
 import { getPostsGroupedByCategoryAndTag, getEventsForRegionPeriod } from "./helper";
-import band01 from './header/images/central.bandeau.png';
+import Link from "./link";
 import { Calendar, DateObject } from "react-multi-date-picker"
 import DatePanel from "react-multi-date-picker/plugins/date_panel"
 import colors from "react-multi-date-picker/plugins/colors";
-import post from "./post";
-import Straps from "./strap/images/straps.png"
+import post from "./post"; 
+import WrapPostTitle from "./wrapPostTitle"
 
 /**
  * The Post component that Mars uses to render any kind of "post type", like
@@ -70,6 +69,9 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
           <CategoryGP key={index} className="GroupCategory col-12 align-self-strech">
             {/*isNotHeader ? (<HeadingGroupCategory  className={`${category.slug}`}>{category.name}</HeadingGroupCategory>):(<span/>)*/}
             {category.name == 'Events' ?
+            <CalendarWrap>
+            
+           
               <Calendar relativePosition='top-center'
                 numberOfMonths={1}
                 disableMonthPicker="true"
@@ -79,25 +81,17 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
                 plugins={[
                   <DatePanel sort="color" markFocused />,
                 ]} />
-              : null}
+               
             {(isNotHeader && posts.length > 0) ? <PostCount>{posts.length} posts </PostCount> in {category} : <span />}
+            </CalendarWrap>
+                       : null}
             <div className="GroupCategory-box col-md-12">
               {posts.map((post, index) => (
                 <article key={index}>
 
                   <div>
                     <div px={2}>
-
-                      {<Link link={post.link}>
-                        <BandContainer className={`${resultF[5][index]} `}>
-                          <div className={`Image `}>
-                            <div className="OverlayT1"> {(((resultF[1][index])==1)) ? (isNotHeader?<span >The name of the region limited to 35c</span>:<span >Region of the Month</span>) : null }</div>
-                            <div className="OverlayT2">  {(isNotHeader) ? ["","Culture: ","Life Style: ","Science: ","Initiative: "][(resultF[4][index])] : <Html2React html={post.title.rendered} />}</div>
-                          </div>
-                        </BandContainer>
-
-                      </Link>}
-
+                    <WrapPostTitle post={post}  libraries={libraries} index={index} resultF={resultF} />
                       {!(isNotHeader) ? <HeaderMedia id={post.featured_media} /> : <span />}
                       <Html2React html={post.excerpt.rendered} />
                     </div>
@@ -121,75 +115,12 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
 
 export default connect(PerCatPost);
 
-const BandContainer = styled.div`
-  position: relative;
-  max-width: 1000px; 
-  height:58px;
-  background: 
-  url('/static/images/straps.png') no-repeat;
-  padding: 5px;
- 
-  &.b100{
-    background-position-y:0px;
-  }
-  &.b000{
-    background-position-y:-58px;
-  }
-  &.b001{
-    background-position-y:-406px;
-  }
-  &.b011{
-    background-position-y:-116px;
-  }
-  &.b002{
-    background-position-y:-464px;
-  }
-  &.b012{
-    background-position-y:-174px;
-  }
-  &.b003{
-    background-position-y:-522px;
-  }
-  &.b013{
-    background-position-y:-232px;
-  }  
-  &.b004
-  {
-    background-position-y:-580px;
-  }
-  &.b014{
-    background-position-y:-290px;
-  }
-  .image {
-    object-fit: cover;
-    }
-  .OverlayT1 {
-    position: relative;
-    display: block;
-    text-align: center;
-    padding-top:-2px;
-    margin-top:-2px;
-    font-size:small;
-    margin-left: 69px;
-  }
-  .OverlayT2 {
-    position: relative;
-    display: block;
-    text-align: left;
-    padding-bottom: 4px;
-    padding-left: 30px;
-    font-size:medium;
-  }
-`;
+
 
 const FlexContainer = styled.div`
   display: flex;
+  justify-content: center;
 `
-const Illust = styled.img`
-  max-width: 50px;
-  border-radius: 25px;
-  margin-right: 25px;
-`;
 
 const BigImage = styled.img`
   max-width: 320px;
@@ -198,6 +129,9 @@ const BigImage = styled.img`
 `;
 
 
+const CalendarWrap = styled.div`
+  display: flex;
+`
 const Container = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
