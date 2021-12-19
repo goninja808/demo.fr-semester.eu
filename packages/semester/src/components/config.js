@@ -8,9 +8,9 @@ export const awCulture = [culture,
 /*historic*/	26
 ];
 export const awCultureLitteral = ["Culture:",
-  "art",
-  "geographic",
-  "historic"
+  "Arts",
+  "Geographical Interests",
+  "Historical interests & sites"
   ];
 export const lifestyle= 28;
 export const awLifestyle = [lifestyle,
@@ -20,10 +20,10 @@ export const awLifestyle = [lifestyle,
 /* typical local product*/	77
 ];
 export const awLifestyleLitteral = ["Lifestyle:",
-  "language",
-  "sport",
-  "taste of france",
-  "typical local product"
+  "Languages",
+  "Sport",
+  "Tastes of France",
+  "Typical Local Products"
   ];
 export const initiative= 37;
 export const awInitiative = [initiative,
@@ -33,16 +33,16 @@ export const awInitiative = [initiative,
   /*  society */	85
   ];
 
-  export const awInitiativeLitteral = ["Initiative:",
-  "community",
-  "ecology",
-  "health",
-  "society"
+  export const awInitiativeLitteral = ["Initiative",
+  "Community life",
+  "Ecology",
+  "Health",
+  "Society"
   ];
 
 export const science= 33;
 export const awScience = [science];
-export const awScienceLitteral= ["Science:"];
+export const awScienceLitteral= ["Science"];
 
 
 export const awSpAny = awCulture.concat(awLifestyle,awInitiative,awScience);
