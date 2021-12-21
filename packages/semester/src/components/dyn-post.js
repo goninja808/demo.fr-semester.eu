@@ -144,6 +144,9 @@ const PerCatTagPeriodPost = ({ state, actions, libraries, period, resultF }) => 
          
           {onlyFact.map(({ posts, category, isNotHeader, resultF }, index) => (
             <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} > 
+             {isNotHeader ?
+                <p>  <strong>{category.name}</strong> ...  </p> 
+             : null}
               <div className="GroupCategory-box col-md-12">
                 {posts.map((post, index) => (
                   <article key={index}>
@@ -158,9 +161,7 @@ const PerCatTagPeriodPost = ({ state, actions, libraries, period, resultF }) => 
                   </article>
                 ))}
               </div>
-              {isNotHeader ? <Link link={category.link}>
-                <p>&gt;&gt; See more <strong>{category.name}</strong> related posts </p>
-              </Link> : null}
+             
             </CategoryGP>
           ))
           }

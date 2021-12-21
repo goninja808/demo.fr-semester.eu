@@ -16,6 +16,9 @@ export const BandContainer = styled.div`
   &.b000{
     background-position-y:-58px;
   }
+  &.b010{
+    background-position-y:-58px;
+  }
   &.b001{
     background-position-y:-406px;
   }

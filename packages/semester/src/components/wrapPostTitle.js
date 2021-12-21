@@ -27,11 +27,11 @@ const WrapPostTitle = ({state, post,libraries, index, resultF }) => {
         <Link link={post.link}>
             <BandContainer className={`${resultF[5][index]} `}>
                 <div className={`Image`}>
-                    <div className="OverlayT1"> {(((resultF[1][index]) == 1)) ? (((resultF[0][index]) == 1) ? <span >Regions of the Month</span> : <span >Centre Val de Loire – Bourgogne Franche Comté</span>) : <span> - </span>}</div>
+                    <div className="OverlayT1"> {(((resultF[1][index]) == 1)) ? (((resultF[0][index]) == 1) ? <span >Regions of the Month</span> : <span >Loire Valley Center – Bourgogne Franche Comté</span>) : <span> - </span>}</div>
                     
-                <div className="TitleT3">  {(((resultF[1][index]) == 1)) ? ((resultF[0][index]) == 0) ? <Html2React html={post.title.rendered} /> : <span ></span> : <Html2React html={post.title.rendered} /> }</div>
+                <div className="TitleT3">  {(((resultF[1][index]) == 1)) ? (((resultF[0][index]) == 0) ? <Html2React html={post.title.rendered} /> : <Html2React html={post.title.rendered} />) : <Html2React html={post.title.rendered} /> }</div>
                 <div className="OverlayT2">  
-                    {((resultF[0][index]) != 0) ? <Html2React html={post.title.rendered}/> : ((resultF[4][index]!=0)? [(resultF[6][index])] :"-") }
+                    {((resultF[0][index]) != 0) ? <span></span> : ((resultF[4][index]!=0)? [(resultF[6][index])] :"Ispra Site") }
                     </div>
                 </div>
             </BandContainer>

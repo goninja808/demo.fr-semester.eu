@@ -67,6 +67,8 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
       <Container>
         {postsPerCategory.map(({ posts, category, isNotHeader, resultF }, index) => (
           <CategoryGP key={index} className="GroupCategory col-12 align-self-strech">
+            {isNotHeader ?  <p><strong>{category.name}</strong> ... </p>
+             : <span />}
             {/*isNotHeader ? (<HeadingGroupCategory  className={`${category.slug}`}>{category.name}</HeadingGroupCategory>):(<span/>)*/}
             {category.name == 'Events' ?
             <CalendarWrap>
@@ -102,8 +104,8 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
             </div>
             <p />
             {posts.length == 0 ? <p><span />No Region Related {category.name} this month.</p> : null}
-            {isNotHeader ? <Link link={category.link}>
-              <p>&gt;&gt; See more <strong>{category.name}</strong> related posts </p>
+            {isNotHeader && (resultF[2][index]!=0)  ? <Link link={category.link}>
+              <p>&gt;&gt; Other category <strong>{category.name}</strong> related posts (no specific to this region). </p>
             </Link> : <span />}
           </CategoryGP>
         ))
