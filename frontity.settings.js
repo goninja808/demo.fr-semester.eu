@@ -24,7 +24,7 @@ const settings = {
             ],
             [
               "EVENTS",
-              "/main-events/"
+              "/category/events/"
             ],
             [
         
