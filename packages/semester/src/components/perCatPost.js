@@ -8,6 +8,7 @@ import DatePanel from "react-multi-date-picker/plugins/date_panel"
 import colors from "react-multi-date-picker/plugins/colors";
 import post from "./post"; 
 import WrapPostTitle from "./wrapPostTitle"
+import {FlexContainer, Container,CategoryGP,CalendarWrap} from "./styles/reflist"
 
 /**
  * The Post component that Mars uses to render any kind of "post type", like
@@ -64,13 +65,16 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
 
   return data.isReady ? (
     <FlexContainer>
+     
+
       <Container>
         {postsPerCategory.map(({ posts, category, isNotHeader, resultF }, index) => (
+          
           <CategoryGP key={index} className="GroupCategory col-12 align-self-strech">
-            {isNotHeader ?  <p><strong>{category.name}</strong> ... </p>
+            {isNotHeader ? <><div class="divider"></div><p><strong>{category.name}</strong></p> </>
              : <span />}
-            {/*isNotHeader ? (<HeadingGroupCategory  className={`${category.slug}`}>{category.name}</HeadingGroupCategory>):(<span/>)*/}
-            {category.name == 'Events' ?
+           
+           {category.name == 'Events' ?
             <CalendarWrap>
             
            
@@ -104,8 +108,8 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
             </div>
             <p />
             {posts.length == 0 ? <p><span />No Region Related {category.name} this month.</p> : null}
-            {isNotHeader && (resultF[2][index]!=0)  ? <Link link={category.link}>
-              <p>&gt;&gt; Other category <strong>{category.name}</strong> related posts (no specific to this region). </p>
+            {isNotHeader && (resultF[1][index]!=0)  ? <Link link={category.link}>
+              <p>&gt;&gt; Other <strong>{category.name}</strong> related posts (Facts + Events). </p>
             </Link> : <span />}
           </CategoryGP>
         ))
@@ -118,125 +122,3 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
 export default connect(PerCatPost);
 
 
-
-const FlexContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
-const BigImage = styled.img`
-  max-width: 320px;
-  border-radius: 25px;
-  margin-right: 25px;
-`;
-
-
-const CalendarWrap = styled.div`
-  display: flex;
-`
-const Container = styled.section`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 8px;
-  background-color: #fff;
-  color: #444;  
-  min-width: 400px;
-  margin: 0 auto;
-  padding-right: 8px;
-  padding-left: 8px;
-  list-style: none;
-  @media (max-width: 800px) {
-    display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 10px;
-  background-color: #fff;
-  color: #444;  
-  min-width: 400px;
-  margin: 0 auto;
-  padding-right: 10px;
-  padding-left: 10px;
-  list-style: none;
-}
-`;
-
-const HeadGroupCategory = styled.article`
-  max-width:771px;
-  margin:0 auto;
-  position: relative;
-  margin-bottom:3.5rem;
-  .article-title {    
-    &:hover {
-      h1 {
-        color:var(--brand);
-      }
-    }
-  }
-`;
-
-
-const PostCount = styled.span`
-  font-size: 10px;
-  font-style: italic;
-`;
-
-const CategoryGP = styled.article`
-max-width:771px;
-margin:0 auto;
-position: relative;
-/**Job articles**/
-&.newscategory {
-  max-width: 100%;
-  margin: 0;
-  margin-bottom: 1 rem;
-  display: flex;
-  flex-direction: column;
-  .categorybox {
-    padding: 2rem;
-    background: var(--grey);
-    box-shadow: 0px 2px 16px -9px rgba(0,0,0,0.5);
-    border: 1px solid #ececec;
-    border-radius:5px;
-    transition: all .4s ease;
-    display: flex;
-    flex-grow: 1;      
-    flex-direction: column;
-    .articletitle {
-      text-decoration:none;
-      h4 {
-        transition: all .3s ease;
-      }        
-      &:hover {
-        h4 {
-          color:var(--brand);
-        }          
-      }
-    }
-  }
-}
-`;
-
-const Header = styled.h3`
-  text-align:left;
-  margin-bottom:1rem;
-  margin-left:1rem;
-`;
-
-const HeadingGroupCategory = styled.h2`
-  font-size: 60px;
-  padding: 5px;
-  &.header{
-    background-color: white;
-  }  
-  &.culture{
-    background-color: #fff2cc;
-  }
-  &.initiative{
-    background-color: #f4cccc;
-  }
-  &.lifestyle{
-    background-color: #cfe2f3;
-  }
-  &.science{
-    background-color: #d9ead3;
-  }
-`
