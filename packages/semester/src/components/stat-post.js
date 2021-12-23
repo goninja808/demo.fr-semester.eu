@@ -1,11 +1,11 @@
-import {useEffect, useRef } from "react";
+import {React, useState, useEffect, useRef } from "react";
+import ReactPlayer from "react-player";
 import { connect, styled } from "frontity";
 import Link from "./link";  
 import HeaderMedia from "./header-media";
 import { getFactsForRegion, getEventsForRegion, getFacts } from "./helper";    
 import {headerC} from "./config"
 import Switch from "@frontity/components/switch"; 
-import React,{useState} from "react"
 import WrapPostTitle from "./wrapPostTitle";
 
 /**
@@ -97,6 +97,7 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
            </Container>
            
            <Container when={state.router.link=='/'}>
+          
             { resultFactNoRegion.map(({ posts, category, isNotHeader , resultF }, index) => (
             <CategoryGP key={index} className={`GroupCategory col-12 align-self-strech  count${posts.length}`} >
               {(category.id === headerC && posts.length >0 )&&  
@@ -127,7 +128,10 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
                        <div >
                          <h2>Site  Under Construction</h2>
                          <h2>Coming soon !</h2>
-                       </div>                  
+                       </div>  
+
+                       <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' muted='true' light='true' width='320px' autoplay='true'/>       
+                    
                    </div>
                  </article>
 
