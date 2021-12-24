@@ -130,7 +130,7 @@ const PerSemiStaticPost = ({ state, actions, libraries ,tagId}) => {
                          <h2>Coming soon !</h2>
                        </div>  
 
-                       <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' muted='true' light='true' width='320px' autoplay='true'/>       
+                       <ReactPlayer url='https://vimeo.com/659880653/583f78ff58' muted='true' light='true' width='320px' autoplay='true'/>       
                     
                    </div>
                  </article>
