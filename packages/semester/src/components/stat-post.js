@@ -77,7 +77,7 @@ const PerSemiStaticPost = ({ state, actions, libraries, tagId }) => {
                         </div>
                       </div>
                       <ReactPlayer url={post.acf.vimeo_conclude}
-                        playing={true} autoPlay={true}   light = {true}
+                        playing={true} autoPlay={true}   
                         loop={true} muted={true} width='100%'  controls={true}
                                           
                         config={{

@@ -8,15 +8,16 @@ function MobileMenu({ state, actions }) {
   const { isMobileMenuOpen } = state.theme;
   return (
     <>
+      
       <MenuToggle onClick={actions.theme.toggleMobileMenu}>
         {isMobileMenuOpen ? (
           <>
             {/* Add some style to the body when menu is open,
             to prevent body scroll */}
-            <Global styles={{ body: { overflowY: "hidden" } }} />
+            <Global styles={{ body: { overflowY: "hidden" } }} /> 
             <CloseIcon color="white" size="34px" />
           </>
-        ) : (
+        ) : ( 
           <HamburgerIcon color="white" size="34px" />
         )}
       </MenuToggle>
