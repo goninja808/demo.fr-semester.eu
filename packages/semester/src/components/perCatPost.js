@@ -106,7 +106,7 @@ const PerCatPost = ({ state, actions, libraries, tagId, period }) => {
                     <WrapPostTitle state={state} post={post}  libraries={libraries} index={index} resultF={resultF} />
                       {!(isNotHeader) ?
                       <ReactPlayer url={post.acf.vimeo_intro}
-                      playing={true} autoPlay={false}   light = {true}
+                      playing={true} autoPlay={true}  
                       loop={true} muted={true} width='100%'  controls={true}
                        
                       config={{
