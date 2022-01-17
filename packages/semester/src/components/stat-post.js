@@ -61,7 +61,7 @@ const PerSemiStaticPost = ({ state, actions, libraries, tagId }) => {
                     <article key={index} hidden={(!(post.tags.length==0))} >
                        <ReactPlayer url={post.acf.vimeo_intro}
                         playing={true} autoPlay={true}
-                        loop={true} muted={true} width='100%'  controls={true}
+                        loop={true} muted={true} width='100%'  
                         config={{
                           file: {
                             attributes: {
@@ -78,7 +78,7 @@ const PerSemiStaticPost = ({ state, actions, libraries, tagId }) => {
                       </div>
                       <ReactPlayer url={post.acf.vimeo_conclude}
                         playing={true} autoPlay={true}   
-                        loop={true} muted={true} width='100%'  controls={true}
+                        loop={true} muted={true} width='100%'  
                                           
                         config={{
                           file: {
