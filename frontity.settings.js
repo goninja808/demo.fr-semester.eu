@@ -29,7 +29,7 @@ const settings = {
             [
         
               "FACTS",
-              "/main-facts/"
+              "/facts/all"
             ]
           ],
           "featured": {
