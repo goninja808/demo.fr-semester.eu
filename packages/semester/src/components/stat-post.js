@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useRef } from "react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import HeaderMedia from "./header-media";
@@ -66,11 +66,14 @@ const PerSemiStaticPost = ({ state, actions, libraries, tagId }) => {
                         playing={true} autoPlay={true}
                         loop={true} muted={true} width='100%'  
                         config={{
-                          file: {
-                            attributes: {
-                              controlsList: "nofullscreen",
-                            },
+                          youtube: {
+                            playerVars: { showinfo: 1 ,}
                           },
+                          vimeo:{
+                            playerOptions: {quality: '360p',}
+                          },
+                          file: {
+                            attributes: {controlsList: "nofullscreen",},                          },
                         }}
                         />   :null}
                       <div>
