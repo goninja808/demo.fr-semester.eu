@@ -12,7 +12,7 @@ const settings = {
       "name": "semester",
       "state": {
         "theme": {
-          "month_tag":process.env.INDEX_SEMESTER,
+          "month_tag":(parseInt(process.env.INDEX_SEMESTER)+1),
           "menu": [  
             [
               "Welcome",
