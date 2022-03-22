@@ -110,9 +110,8 @@ const PerCatTagPeriodEvents = ({ state, actions, libraries, period, tagId, categ
         <div className="BlockDatePick">
           &nbsp;
           <DropdownButton variant="outline-primary" id="dropdown-item-button" title="period (coming months)">
-            <Dropdown.Item className="DatePick" href="#" onClick={() => { actions.router.set("/events/202201/"); location.reload() }} >January &nbsp;</Dropdown.Item>
-            <Dropdown.Item className="DatePick" href="#" onClick={() => { actions.router.set("/events/202202/"); location.reload() }}>February &nbsp;</Dropdown.Item>
             <Dropdown.Item className="DatePick" href="#" onClick={() => { actions.router.set("/events/202203/"); location.reload() }}>March &nbsp;</Dropdown.Item>
+            <Dropdown.Item className="DatePick" href="#" onClick={() => { actions.router.set("/events/202204/"); location.reload() }}>April &nbsp;</Dropdown.Item>
           </DropdownButton>
         </div>
       </FactCategoryWrap>
