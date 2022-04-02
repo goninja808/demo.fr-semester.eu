@@ -12,7 +12,7 @@ const settings = {
       "name": "semester",
       "state": {
         "theme": {
-          "month_tag":(parseInt(process.env.INDEX_SEMESTER)+1),
+          "month_tag":(parseInt(process.env.INDEX_SEMESTER)),
           "menu": [  
             [
               "Welcome",
@@ -24,7 +24,7 @@ const settings = {
             ],
             [
               "EVENTS",
-              "/events/20220"+(parseInt(process.env.INDEX_SEMESTER)+2)
+              "/events/20220"+(parseInt(process.env.INDEX_SEMESTER)+1)
             ],
             [
         
