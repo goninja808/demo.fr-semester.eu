@@ -21,7 +21,7 @@ export const ListedRegionTags = [idR202201,
     idR202203,
     idR202204,
     idR202205,
-    idR202205];
+    idR202206];
 
 export const ListedRegionTagsLitteral = [
     "Bourgogne Franche-Comté – Centre-Loire Valley",
