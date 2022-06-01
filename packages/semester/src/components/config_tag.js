@@ -21,6 +21,7 @@ export const ListedRegionTags = [idR202201,
     idR202203,
     idR202204,
     idR202205,
+    idR202206,
     idR202206];
 
 export const ListedRegionTagsLitteral = [
@@ -29,6 +30,7 @@ export const ListedRegionTagsLitteral = [
     "Hauts de France, Ile de France, Grand Est",
     "DROM, Overseas Departments and Regions",
     "Normandy Brittany Pays de Loire",
+    "New Aquitaine, Occitanie",
     "New Aquitaine, Occitanie"];
 
 
